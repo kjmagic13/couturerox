@@ -1,0 +1,17 @@
+{% if page.include_file == 'contact' %}
+
+	{% include contact.html %}
+
+{% elsif page.include_file == 'news' %}
+
+	{% include news.html %}
+
+{% elsif page.include_file == 'upload' %}
+
+	{% include upload.html %}
+
+{% else %}
+
+	{% include featured.html %}
+
+{% endif %}

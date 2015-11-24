@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div class="container">
+
+	<header class="page-header page-header-warning">
+		<h1 class="text-center">
+			{{ page.title }}
+			<!-- <br> -->
+			<!-- <small>
+				{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+			</small> -->
+		</h1>
+	</header>
+
+	<ol class="breadcrumb">
+		<li><a href="/">Home</a></li>
+		<li><a href="/news">News</a></li>
+		<li class="active">{{ page.title }}</li>
+	</ol>
+
+	<div class="row">
+		
+		<article class="col-sm-7 col-md-8">
+			<div class="panel panel-default">
+				<div class="panel-body">
+
+					{% if page.image %}
+					<p>
+						<img class="img-responsive center-block" src="{{ site.baseurl }}/images/{{ page.image }}" alt="{{ page.title }}">
+					</p>
+					{% elsif page.remote_image %}
+					<p>
+						<img class="img-responsive center-block" src="{{ page.remote_image }}" alt="{{ page.title }}">
+					</p>
+					{% endif %}
+
+					{{ content }}
+				</div>
+			</div>
+		</article>
+
+		<aside class="col-sm-5 col-md-4">
+			{#% include sidebar.html %}
+
+			{#% include most-recent.html %}
+		</aside>
+	</div>
+</div>
