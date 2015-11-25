@@ -1,0 +1,8 @@
+- name: "Custom"
+  url: "/custom/"
+
+- name: "About"
+  url: "/about/"
+
+- name: "Contact"
+  url: "/contact/"

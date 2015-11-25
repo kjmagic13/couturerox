@@ -10,41 +10,26 @@
 			</button>
 			<a class="navbar-brand serif padded-xs" href="{{ site.baseurl }}/">{{ site.title }}</a>
 		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				{% for link in site.data.menu_nav %}
-				{% if link.title %}
-
-				{% if link.subs %}
-				<li class="dropdown">
-					<a href="{{ link.href | prepend: site.baseurl }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						{{ link.title }} <span class="caret"></span>
+				<li>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Collections <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						{% for sublink in link.subs %}
-						{% if sublink.title %}
-						<li class="{% if sublink.href == page.url %}active{% endif %}">
-							<a href="{{ sublink.href | prepend: site.baseurl }}" class="{{ sublink.class }}">{{ sublink.title }}</a>
+						{% for collection in site.data.collections %}
+						<li>
+							<a href="#">{{ collection.name }}</a>
 						</li>
-						{% endif %}
 						{% endfor %}
 					</ul>
 				</li>
-				{% else %}
-				<li class="{% if link.href == page.url %}active{% endif %}{% if link.class %}{{link.class}}{% endif %}">
-					<a href="{{ link.href | prepend: site.baseurl }}" class="{{ link.class }}">{{ link.title }}</a>
+				{% for page in site.data.pages %}
+				<li>
+					<a href="{{ page.url }}">{{ page.name }}</a>
 				</li>
-				{% endif %}
-
-				{% endif %}
 				{% endfor %}
-
 			</ul>
-
-			<!-- <ul class="nav navbar-nav navbar-right"></ul> -->
-
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
+		</div>
+	</div><!-- /.container -->
 </nav>

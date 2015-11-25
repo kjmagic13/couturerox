@@ -9,6 +9,7 @@ description: > # this means to ignore newlines until "baseurl:"
 
 baseurl: "/couturerox"
 url: "http://kaymic.com/couturerox"
+storeurl: "http://couturethatrox.storenvy.com"
 
 twitter_username: couturethatrox
 

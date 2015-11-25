@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<div class="padded">
+	<h1>Welcome</h1>
+
+	<p>
+		Our dreamy designs are sure to excite you, as well as your little Fashionista!  Adorned with gorgeous crystal embellishments, our apparel will effortlessly take you and your little one from the beach to a birthday bash! While our designs are comfy and whimsical, they are all original designs created by our talented design team.
+	</p>
+</div>
+
+<div class="container-white padded">
+
+	<h2>Featured Products</h2>
+	<hr>
+
+	{% if site.data.products %}
+	<div class="row" id="featured-products">
+		{% for product in site.data.products %}
+
+		<div class="col-xs-6 product" id="products_{{product.id}}">
+			<div class="product-thumb">
+				<a href="{{product.url}}">
+					<div class="embed-responsive embed-responsive-4by3 thumbnail">
+						<img src="{{ product.image.medium_url }}" alt="{{product.name | h}}" class="product-image img-responsive center-block" />
+					</div>
+					<span class="product-price label label-info">{{ product.price | money_with_sign }}</span>
+					<span class="product-name">{{ product.name }}</span>
+				</a>
+			</div>
+		</div>
+
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p class="lead">
+		There are no products in this collection yet. Please check back later.
+	</p>
+	{% endif %}
+</div>
