@@ -13,5 +13,13 @@ storeurl: "http://couturethatrox.storenvy.com"
 
 twitter_username: couturethatrox
 
+paginate: 10
+# paginate_path: "portfolio/:num"
+
 # Build settings
 markdown: kramdown
+permalink: pretty
+
+gems:
+ - jekyll-coffeescript
+ - jekyll-paginate
