@@ -71,7 +71,7 @@
 					</li>
 					{% for page in site.data.pages %}
 					<li>
-						<a href="{{ page.url }}">{{ page.name }}</a>
+						<a href="{{ page.url | prepend: site.baseurl }}">{{ page.name }}</a>
 					</li>
 					{% endfor %}
 				</ul>
