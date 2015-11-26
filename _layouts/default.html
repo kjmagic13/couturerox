@@ -3,7 +3,7 @@
 
 <head>
 
-
+	{{ head_content }}
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
 
 	<div class="gems">
 		<div class="container">
-			<a href="{{site.baseurl}}/home">
+			<a href="{{ site.baseurl }}/home">
 				<img src="{{site.url}}/images/header2.png" class="img-responsive center-block" />
 			</a>
 		</div>
@@ -64,7 +64,7 @@
 						<ul class="dropdown-menu">
 							{% for collection in site.data.collections %}
 							<li>
-								<a href="#">{{ collection.name }}</a>
+								<a href="{{ collection.url }}">{{ collection.name }}</a>
 							</li>
 							{% endfor %}
 						</ul>
@@ -88,7 +88,7 @@
 				<h3 class="padded-xs">Collections</h3>
 				<div class="list-group">
 					{% for collection in site.data.collections %}
-					<a href="#" class="list-group-item">
+					<a href="{{ collection.url }}" class="list-group-item">
 						{{ collection.name }}
 						<span class="badge">
 							{{ collection.product_count }}
@@ -140,10 +140,10 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="{{ site.url }}/js/bootstrap-3.3.5.min.js"></script>
-	<script src="{{ site.url }}/js/theme.js"></script>
-	<script src="{{ site.url }}/js/bslightbox.js"></script>
-	<script src="{{ site.url }}/js/jquery.mobile.touch.min.js"></script>
+	<script src="{{ site.baseurl }}/js/bootstrap-3.3.5.min.js"></script>
+	<script src="{{ site.baseurl }}/js/theme.js"></script>
+	<script src="{{ site.baseurl }}/js/bslightbox.js"></script>
+	<script src="{{ site.baseurl }}/js/jquery.mobile.touch.min.js"></script>
 
 </body>
 </html>

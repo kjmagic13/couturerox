@@ -1,21 +1,28 @@
 - name: All Products
   icon: th
   product_count: 37
+  url: '#'
 - name: Women
   icon: female
   product_count: 37
+  url: '#'
 - name: Girls
   icon: child
   product_count: 37
+  url: '#'
 - name: Men
   icon: male
   product_count: 37
+  url: '#'
 - name: Collegiate
   icon: graduation-cap
   product_count: 37
+  url: '#'
 - name: Specialty
   icon: star
   product_count: 37
+  url: '#'
 - name: Corporate
   icon: paperclip
   product_count: 37
+  url: '#'
