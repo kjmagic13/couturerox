@@ -1,24 +1,24 @@
 - name: "A Shirt with a really really really long title"
   id: 123
   price: 12
-  url: '#'
+  url: '/product/'
   image:
     medium_url: http://www.customink.com/assets/site_content/products/530x542/unisex/orange-cb68a219e2b35bad123a229afac8c110.jpg
 - name: "A Shirt"
   id: 123
   price: 12
-  url: '#'
+  url: '/product/'
   image:
     medium_url: http://www.jamesbondlifestyle.com/sites/default/files/styles/fancybox_popup/public/images/product/cl014-sunspel-grey-shirt.jpg?itok=9JsNP14R
 - name: "A Shirt"
   id: 123
   price: 12
-  url: '#'
+  url: '/product/'
   image:
     medium_url: http://www.customink.com/assets/site_content/products/530x542/unisex/orange-cb68a219e2b35bad123a229afac8c110.jpg
 - name: "A Shirt"
   id: 123
   price: 12
-  url: '#'
+  url: '/product/'
   image:
     medium_url: http://www.jamesbondlifestyle.com/sites/default/files/styles/fancybox_popup/public/images/product/cl014-sunspel-grey-shirt.jpg?itok=9JsNP14R
