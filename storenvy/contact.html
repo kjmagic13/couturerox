@@ -1,0 +1,83 @@
+
+<div class="padded">
+	<h1>Contact Us</h1>
+
+	<p>
+		Thank you for your interest in Couture That Rox! Your business is very important to us.
+	</p>
+
+	<blockquote>
+		Phone: (813) 770-1124<br>
+		Email: info@couturethatrox.com<br>
+		P.O. Box: 10246 Tampa, FL 33679
+	</blockquote>
+</div>
+
+<div class="container-white padded">
+
+	<h3>Send a Message</h3>
+
+	<p>
+		We love to hear from our customers and partners! Please use the contact form below to send us a direct message.
+	</p>
+
+	{% if contact.sent %}
+	<div id="request_received">
+		<h2>Thanks for getting in touch!</h2>
+		<p>We will respond as soon as possible.</p>
+		<p>Sincerely,<br/>{{ store.name }}</p>
+	</div>
+	{% else %}
+	<form id="contact-form" method="post" action="/contact">
+		<div class="form-group" id="first_field">
+			<label for="name">Name <span class="required">*</span></label>
+			{{ contact | contact_input: 'name', 'text', 'Your Name'}}
+		</div>
+		<div class="form-group">
+			<label for="email">Email <span class="required">*</span></label>
+			{{ contact | contact_input: 'email', 'text', 'jondoe@example.com'}}
+		</div>
+		<div class="form-group">
+			<label for="phone">Phone</label>
+			{{ contact | contact_input: 'phone', 'text', '999-998-9999'}}
+		</div>
+		<div class="form-group">
+			<label for="order_number">Order #</label>
+			{{ contact | contact_input: 'order_number', 'text', '23091230921009'}}
+		</div>
+		<div class="form-group">
+			<label for="message">Message <span class="required">*</span></label>
+			{{ contact | contact_input: 'message', 'text', 'Please provide as much information as you can.'}}
+		</div>
+		<div class="form-group">
+			<label for="captcha">Captcha <span class="required">*</span></label>
+			<div id="captcha_question">{{ contact.captcha }}</div>
+			{{ contact | contact_input: 'captcha' }}
+		</div>
+		<div>
+			<div class="label"></div>
+			<div class="submit">
+				<input type="submit" value="Send Message" class="btn btn-info" />
+			</div><!-- end .submit -->
+		</div>
+	</form>
+	{% endif %}
+
+
+	<h3>Wholesale</h3>
+
+	<p>
+		Couture That Rox has developed a unique combination of design and manufacturing capabilities that allows us to meet the quantity needs of our customers.  Our services also include the following:
+	</p>
+
+	<ul>
+		<li>Production of small and large size orders.</li>
+		<li>Extremely competitive pricing on all orders.</li>
+		<li>Excellent customer service with a proven delivery track record.</li>
+		<li>An extensive selection of crystal designs, apparel styles, colors and sizes. Including, "original" stock designs and the ability to design and create any logo, or specialty design.</li>
+		<li>Merchandise designed with the option of using Swarovski Crystals, premium quality crystals, rhinestones, metal rhinestuds, or nailheads.  With endless stone options, we can create designs based on any budget.</li>
+		<li>Offer the highest quality cotton apparel, as well as, countless fabric options.</li>
+		<li>The ability to produce designs on your merchandise.</li>
+	</ul>
+
+</div>

@@ -1,0 +1,31 @@
+
+<div class="padded">
+	<h1>{{ collection.name }}</h1>
+</div>
+
+<div class="container-white padded">
+
+	{% if products.current != blank %}
+
+	<div class="row" id="products">
+		{% for product in products.current %}
+		<div class="col-xs-6 product" id="products_{{product.id}}">
+	<div class="product-thumb">
+		<a href="{{product.url}}">
+			<div class="embed-responsive embed-responsive-4by3 thumbnail">
+				<img src="{{ product.image.medium_url }}" alt="{{product.name | h}}" class="product-image img-responsive center-block" />
+			</div>
+			<span class="product-price label label-info">{{ product.price | money_with_sign }}</span>
+			<span class="product-name">{{ product.name }}</span>
+		</a>
+	</div>
+</div>
+
+		{% endfor %}
+	</div>
+
+	{% else %}
+	<p>There are no products in this collection yet.  Please check back later.</p>
+	{% endif %}
+
+</div>
