@@ -33,30 +33,30 @@ permalink: /contact/
 	</div>
 	{% else %}
 	<form id="contact-form" method="post" action="/contact">
-		<div class="form-group auto-style" id="first_field">
+		<div class="form-group" id="first_field">
 			<label for="name">Name <span class="required">*</span></label>
-			{{ contact | contact_input: 'name', 'text', 'Your Name'}}
+			{{ contact | contact_input: 'name', 'form-control', 'Your Name'}}
 		</div>
-		<div class="form-group auto-style">
+		<div class="form-group">
 			<label for="email">Email <span class="required">*</span></label>
-			{{ contact | contact_input: 'email', 'text', 'jondoe@example.com'}}
+			{{ contact | contact_input: 'email', 'form-control', 'jondoe@example.com'}}
 		</div>
-		<div class="form-group auto-style">
+		<div class="form-group">
 			<label for="phone">Phone</label>
-			{{ contact | contact_input: 'phone', 'text', '999-998-9999'}}
+			{{ contact | contact_input: 'phone', 'form-control', '999-998-9999'}}
 		</div>
-		<div class="form-group auto-style">
+		<div class="form-group">
 			<label for="order_number">Order #</label>
-			{{ contact | contact_input: 'order_number', 'text', '23091230921009'}}
+			{{ contact | contact_input: 'order_number', 'form-control', '23091230921009'}}
 		</div>
-		<div class="form-group auto-style">
+		<div class="form-group">
 			<label for="message">Message <span class="required">*</span></label>
-			{{ contact | contact_input: 'message', 'text', 'Please provide as much information as you can.'}}
+			{{ contact | contact_input: 'message', 'form-control', 'Please provide as much information as you can.'}}
 		</div>
 		<div class="form-group">
 			<label for="captcha">Captcha <span class="required">*</span></label>
 			<div id="captcha_question">{{ contact.captcha }}</div>
-			{{ contact | contact_input: 'captcha' }}
+			{{ contact | contact_input: 'captcha', 'form-control' }}
 		</div>
 		<div>
 			<div class="label"></div>
@@ -67,6 +67,7 @@ permalink: /contact/
 	</form>
 	{% endif %}
 
+	<hr>
 
 	<h3>Wholesale</h3>
 

@@ -1,49 +1,22 @@
 
 <div class="padded">
-	<h1>Angela Gard – CEO/President</h1>
-	<p>After a lengthy career in the financial services industry, I searched for a business that would allow me to spend quality time with my family. With a love for fashion, and the demand for a fun, funky, yet affordable crystal embellished clothing line for women and children, Couture That Rox was born!</p>
-	<p>I personally oversee every design produced by the Couture That Rox team. Our designs are all originals and reflect the personality and uniqueness of our customers needs. With attention to detail, my design team and I, work together with our customers to create the perfect design.</p>
-	<p>Couture That Rox uses only the highest quality fabrics embellished with the option of either Swarovski Crystals, premium quality crystals, or rhinestones.</p>
-	<p>Our entire product line is proudly designed, assembled, and processed in the USA!</p>
+	<h1>{{ store.name }}</h1>
+
+	{% if store.description != blank %}
+	{{ store.description | paragraphs }}
+	{% endif %}
 </div>
 
 <div class="container-white padded">
-	<h2>In the News</h2>
-	<p>Couture that Rox was featured in the November and December 2010 issues of Tampa Bay Parenting Magazine!</p>
-	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
-			<a href="{{site.baseurl}}/" class="btn btn-primary btn-block">Recent News</a>
-		</div>
-	</div>
+	<h2>FAQs</h2>
+
+	<ul class="faqs">
+		{% for faq in faqs.all %}
+		<li class="faq">
+			<h4>{{faq.question}}</h4>
+			<p>{{ faq.answer | paragraphs: 'answer' }}</p>
+		</li>
+		{% endfor %}
+	</ul>
+
 </div>
-
-
-
-
-
-
-
-<h1>About</h1>
-<hr/>
-<div id="about">
-  <h2 id="about_store_name">{{ store.name }}</h2>
-  {% if store.description != blank %}
-    <p id="store_description">{{ store.description | paragraphs }}</p>
-    {% if store.location != blank %}
-      <h5 id="store_location">{{ store.location }}</h5>
-    {% endif %}
-  {% endif %}
-  <div class="clearfix"></div>
-</div>
-
-<h1>FAQ</h1>
-<hr/>
-<ul class="faqs">
-{% for faq in faqs.all %}
-  <li class="faq">
-    <h2>{{faq.question}}</h2>
-    <p>{{ faq.answer | paragraphs: 'answer' }}</p>
-  </li>
-{% endfor %}
-</ul>
-​
