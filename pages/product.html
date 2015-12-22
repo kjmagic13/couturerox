@@ -3,4 +3,166 @@ layout: page
 permalink: /product/
 ---
 
-product page
+<div id="product">
+	{% if collection != blank %}
+	<div id="product-navigation">
+		<ul>
+			{% if product.prev %}
+			<li><a href="{{ product.prev.url }}">Previous</a></li>
+			{% endif %}
+
+			{% if product.next %}
+			<li><a href="{{ product.next.url }}">Next</a></li>
+			{% endif %}
+		</ul>
+
+		<div class="breadcrumb">
+			<a href="{{store.url}}">{{ store.name }}</a>
+			&gt;
+			<a href="{{collection.url}}">{{ collection.name }}</a>
+			&gt;
+			{{ product.name }}
+		</div>
+
+		<hr />
+	</div>
+	{% endif %}
+
+	<div id="product-photo">
+		<div id="main_photo">
+			<a href="{{ product.photo.url }}" rel="product_photos"><img src="{{ product.photo.url_400 }}" alt="{{ product.name | escape }}" /></a>
+
+			<ul id="thumbs">
+				{% for photo in product.photos offset:1 %}
+				<li>
+					<a href="{{ photo.url }}" class="product_thumb" {% if forloop.first %}id="first_thumb" {% endif %} rel="product_photos">
+						<img src="{{ photo.url_200sq }}" alt="{{ product.name | escape }} - Thumbnail {{forloop.index}}"/>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div id="product_info">
+		<p id="product_name">{{ product.name }}</p>
+		<p id="price">{{ product.price | money_with_sign }}</p>
+		{% if product.on_sale %}<div class="sale status">On Sale</div>{% endif %}
+		{% if product.preorder %}<div class="preorder status">Pre-Order</div>{% endif %}
+		{% if product.coming_soon %}<div class="soon status">Coming Soon</div>{% endif %}
+		{% if product.sold_out %}<div class="soldout">Sold Out</div>{% endif %}
+		{% if product.coming_soon %}
+
+		{% else %}
+
+		{% if product.sold_out %}
+
+		{% else %}
+		<form method="post" id="cart_add_form" action="/cart">
+			{% if product.variants.size > 1 %}
+			<select id="variant_id">
+				{% for variant in product.variants %}
+				{% if variant.quantity > 0 %}
+				<option value="{{ variant.id }}">{{ variant.name }}</option>
+				{% endif %}
+				{% endfor %}
+			</select>
+			{% else %}
+			<div class="{% if product.variants.first.name != 'Default' %}single-variant{% endif %}">
+				<input type="hidden" id="variant_id" value="{{ product.variants.first.id }}" />
+				{% if product.variants.first.name != 'Default' %}
+				<span>{{ product.variants.first.name }}</span>
+				{% endif %}
+			</div>
+			{% endif %}
+			<input type="button" id="add_to_cart_button" class="button add_to_cart_button" value="Add to Cart"/>
+			<div class="clearfix"></div>
+		</form>
+
+		{% endif %}
+		<div id="add_notice" style="display:none;">
+			<div id="add_error" style="display:none;"></div>
+			<div id="add_success" style="display:none;">
+				<p id="item_added"><span id="added_to_cart_label">Added to cart.</span></p>
+				<a href="" class="button" id="add_notice_checkout">CHECKOUT</a>
+				<p id="items_in_cart">
+					<a href="" id="add_notice_checkout_cart">
+						<span id="add_notice_cart_count"></span>
+					</a>
+				</p>
+			</div>
+		</div>
+		{% endif %}
+		<hr/>
+		{% if product.description != blank %}
+		<p id="description_label">Description</p>
+		<div id="product_description">{{ product.description | auto_link | paragraphs }}</div>
+		<hr />
+		{% endif %}
+
+		<p>SHARE THIS</p>
+		<div id="share_product">
+			{{ product | facebook_like_button: 'button_count' }} <!-- Facebook Like Button -->
+			{{ product | pinterest_button }} <!-- Pinterest Pin-it Button -->
+			{{ product | tumblr_button }} <!-- Tumblr Share Button --><br/><br/>
+			{{ product | tweet_button }} <!-- Twitter Share Button -->
+			{{ product | wanelo_button }} <!-- Wanelo Share Button -->
+		</div>
+
+		{% if theme.show_stock_bars %}
+		<p>STOCK LEVELS</p>
+		<ul id="stock">
+			{% for variant in product.variants %}
+			<li>
+				<p>
+					{% if variant.name != 'Default' %}
+					{{ variant.name }}
+					{% else %}
+					Availability
+					{% endif %}
+					<span class="stock-sold-out">{% if variant.quantity < 1 %} (sold out){% endif %}</span>
+				</p>
+				<div class="stock-remaining" style="width:{{variant.percent_available}}%;"></div>
+				<div class="stock-sold"></div>
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div><!-- end #product_info -->
+</div><!-- end #product -->
+{% if collection != blank %}
+{% if product.prev or product.next %}
+<div id="browse-more">
+	<hr />
+	<div>
+		<ul>
+			{% if product.prev %}
+			<li><a href="{{ product.prev.url }}">Previous</a></li>
+			{% endif %}
+
+			{% if product.next %}
+			<li><a href="{{ product.next.url }}">Next</a></li>
+			{% endif %}
+		</ul>
+
+		<h3>Browse more {{ collection.name }}</h3>
+	</div>
+
+	<div class="browser">
+		{% for related_product in product.related_products.current %}
+		<div class="related-products">
+			<a href="{{ related_product.url }}" class="product_thumb" {% if forloop.first %}id="first_thumb" {% endif %} rel="next">
+				<img src="{{ related_product.photo.url_400sq }}" alt="{{ related_product.photo.alt | escape }} - Thumbnail {{ forloop.index }}"  rel="product_photos"/>
+				<p class="product_name">{{related_product.name | strip_html}}</p>
+				<p class="product_price">{{ related_product.price | money_with_sign }}</p>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{% endif %}
+{% endif %}
+
+<script>
+var json_product = {{ product | json }}
+</script>

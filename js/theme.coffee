@@ -3,6 +3,13 @@
 
 $ ->
 
+	# json api
+	# $.getJSON 'http://kaymic.storenvy.com/collections.json?callback=?', (result) ->
+	# 	console.log result
+	# 	for collection in result.collections
+	# 		$('#products').append $('<li>').text(collection.name)
+	# 	return
+
 	# swipe capable carousel
 	$('.carousel').swiperight ->
 		$(this).carousel 'prev'

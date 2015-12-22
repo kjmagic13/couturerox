@@ -11,6 +11,8 @@ baseurl: "/couturerox"
 url: "http://kaymic.com/couturerox"
 storeurl: "http://couturethatrox.storenvy.com"
 
+banner_url: /images/header2.png
+
 twitter_username: couturethatrox
 
 paginate: 10
@@ -19,6 +21,8 @@ paginate: 10
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+exclude: [storenvy]
 
 gems:
  - jekyll-coffeescript

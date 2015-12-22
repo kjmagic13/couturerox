@@ -37,7 +37,7 @@
 	<div class="gems">
 		<div class="container">
 			<a href="http://kaymic.com/couturerox/home">
-				<img src="{{site.url}}/images/header2.png" class="img-responsive center-block" />
+				<img src="{{ site.banner_url }}" class="img-responsive center-block" />
 			</a>
 		</div>
 	</div>
@@ -64,12 +64,12 @@
 					<ul class="dropdown-menu">
 						{% for collection in collections.nav %}
 						<li>
-							<a href="#">{{ collection.name }}</a>
+							<a href="{{ collection.url }}">{{ collection.name }}</a>
 						</li>
 						{% endfor %}
 					</ul>
 				</li>
-				{% for page in site.data.pages %}
+				{% for page in pages.all %}
 				<li>
 					<a href="{{ page.url }}">{{ page.name }}</a>
 				</li>

@@ -29,23 +29,23 @@
 	</div>
 	{% else %}
 	<form id="contact-form" method="post" action="/contact">
-		<div class="form-group" id="first_field">
+		<div class="form-group auto-style" id="first_field">
 			<label for="name">Name <span class="required">*</span></label>
 			{{ contact | contact_input: 'name', 'text', 'Your Name'}}
 		</div>
-		<div class="form-group">
+		<div class="form-group auto-style">
 			<label for="email">Email <span class="required">*</span></label>
 			{{ contact | contact_input: 'email', 'text', 'jondoe@example.com'}}
 		</div>
-		<div class="form-group">
+		<div class="form-group auto-style">
 			<label for="phone">Phone</label>
 			{{ contact | contact_input: 'phone', 'text', '999-998-9999'}}
 		</div>
-		<div class="form-group">
+		<div class="form-group auto-style">
 			<label for="order_number">Order #</label>
 			{{ contact | contact_input: 'order_number', 'text', '23091230921009'}}
 		</div>
-		<div class="form-group">
+		<div class="form-group auto-style">
 			<label for="message">Message <span class="required">*</span></label>
 			{{ contact | contact_input: 'message', 'text', 'Please provide as much information as you can.'}}
 		</div>

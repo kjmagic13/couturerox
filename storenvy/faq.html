@@ -16,3 +16,34 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+<h1>About</h1>
+<hr/>
+<div id="about">
+  <h2 id="about_store_name">{{ store.name }}</h2>
+  {% if store.description != blank %}
+    <p id="store_description">{{ store.description | paragraphs }}</p>
+    {% if store.location != blank %}
+      <h5 id="store_location">{{ store.location }}</h5>
+    {% endif %}
+  {% endif %}
+  <div class="clearfix"></div>
+</div>
+
+<h1>FAQ</h1>
+<hr/>
+<ul class="faqs">
+{% for faq in faqs.all %}
+  <li class="faq">
+    <h2>{{faq.question}}</h2>
+    <p>{{ faq.answer | paragraphs: 'answer' }}</p>
+  </li>
+{% endfor %}
+</ul>
+​
